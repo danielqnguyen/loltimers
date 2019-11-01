@@ -5,15 +5,17 @@ const Desc = props => {
     <>
       <div className="testbox">
         <ul>
-          <li>Heal: 240 seconds</li>
-          <li>Ghost: 180 seconds</li>
+          <li>Smite: 90/15 Seconds</li>
           <li>Barrier: 180 seconds</li>
-          <li>Exhaust: 210 seconds</li>
-          <li>Flash: 300 seconds</li>
-          <li>Teleliort: 360 seconds</li>
-          <li>Cleanse: 210 seconds</li>
           <li>Ignite: 180 seconds</li>
+          <li>Ghost: 180 seconds</li>
+          <li>Exhaust: 210 seconds</li>
+          <li>Cleanse: 210 seconds</li>
+          <li>Heal: 240 seconds</li>
+          <li>Flash: 300 seconds</li>
+          <li>Teleport: 360 seconds</li>
         </ul>
+        <button onClick={props.onConfirm}>Confirm Summoners</button>
       </div>
     </>
   );
