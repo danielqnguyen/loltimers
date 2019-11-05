@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       gameBegun: false,
       gameSec: 0,
-      gameMin: 10,
+      gameMin: 0,
       gameStart: 0,
       tSS1: "",
       tSS2: "",
@@ -66,11 +66,13 @@ class App extends Component {
     let time = this.state.gameSec;
     let trueTime = (time += 1);
     this.timer = this.setState({ gameSec: trueTime });
-    window.setTimeout(this.countUp, 1000);
+    this.gameTimer = setInterval(() => this.countUp(), 1000);
+    // window.setTimeout(this.countUp, 1000);
   };
 
   gameEnd = () => {
     this.setState({ gameMin: 0, gameSec: 0, gameBegun: false });
+    clearInterval(this.gameTimer);
   };
 
   onChange = evt => {
@@ -123,12 +125,39 @@ class App extends Component {
   };
 
   timeSpell = evt => {
-    let time = this.state.gameMin;
+    let min = this.state.gameMin;
+    let sec = this.state.gameSec;
+    const val = evt.target.value;
+
     const key = evt.target.name;
-    console.log(key);
-    switch (key) {
+    console.log(key, val);
+    switch (val) {
       case "Teleport":
-        this.setState({ tSt1: time + 6 });
+        this.setState({ tSt1: min + 6 });
+        break;
+      case "Flash":
+        this.setState({ tSt2: min + 5 });
+        break;
+      case "Heal":
+        this.setState({ tSt2: min + 4 });
+        break;
+      case "Cleanse":
+        this.setState({ tSt2: min + 5 });
+        break;
+      case "Exhaust":
+        this.setState({ tSt2: min + 5 });
+        break;
+      case "Ghost":
+        this.setState({ tSt2: min + 5 });
+        break;
+      case "Ignite":
+        this.setState({ tSt2: min + 5 });
+        break;
+      case "Barrier":
+        this.setState({ tSt2: min + 5 });
+        break;
+      case "Smite":
+        this.setState({ tSt2: min + 5 });
         break;
       default:
     }

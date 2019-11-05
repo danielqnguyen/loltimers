@@ -42,10 +42,23 @@ const Lanes = props => {
         <>
           <div className="testbox">
             <h3>{props.lane}</h3>
-            <button>{props.ss1}</button>
-            {props.time}
-            <button>{props.ss2}</button>
-            {props.time2}
+            <button
+              onClick={props.timeSpell}
+              value={props.ss1}
+              name={props.name}
+            >
+              {props.ss1}
+            </button>
+            <button
+              onClick={props.timeSpell}
+              value={props.ss2}
+              name={props.name2}
+            >
+              {props.ss2}
+            </button>
+            <div>
+              {props.time} | {props.time2}
+            </div>
           </div>
         </>
       );
@@ -54,10 +67,14 @@ const Lanes = props => {
       <>
         <div className="testbox">
           <h3>{props.lane}</h3>
-          <button onClick={props.timeSpell} name={props.ss1}>
+          <button onClick={props.timeSpell} value={props.ss1} name={props.name}>
             {props.ss1}
           </button>
-          <button onClick={props.timeSpell} name={props.ss2}>
+          <button
+            onClick={props.timeSpell}
+            value={props.ss2}
+            name={props.name2}
+          >
             {props.ss2}
           </button>
         </div>
