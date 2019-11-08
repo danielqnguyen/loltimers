@@ -38,6 +38,10 @@ const Lanes = props => {
     );
   } else if (props.con === true) {
     if (props.time > 1 || props.time2 > 1) {
+      let dTimer = Math.floor(props.time / 60);
+      let dSec = Math.round([[props.time / 60] - dTimer] * 60);
+      let fTimer = Math.floor(props.time2 / 60);
+      let fSec = Math.round([[props.time2 / 60] - fTimer] * 60);
       return (
         <>
           <div className="testbox">
@@ -57,7 +61,7 @@ const Lanes = props => {
               {props.ss2}
             </button>
             <div>
-              {props.time} | {props.time2}
+              {dTimer}:{dSec} | {fTimer}:{fSec}
             </div>
           </div>
         </>
