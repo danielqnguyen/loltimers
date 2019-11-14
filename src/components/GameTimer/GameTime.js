@@ -5,10 +5,10 @@ const Time = props => {
     return (
       <>
         <div className="timer">
-          <h2> 1Game Time| 00:0{props.gameSec} </h2>
+          <h2> Game Time| 00:0{props.gameSec} </h2>
           <button onClick={props.gameStart}> Start </button>
           <button onClick={props.gameEnd}> End </button>
-          <button> +.01secs</button>
+          <button onClick={props.clear}> Clear </button>
         </div>
       </>
     );
@@ -16,10 +16,10 @@ const Time = props => {
     return (
       <>
         <div className="timer">
-          <h2> 2Game Time| 00:{props.gameSec} </h2>
+          <h2> Game Time| 00:{props.gameSec} </h2>
           <button onClick={props.gameStart}> Start </button>
           <button onClick={props.gameEnd}> End </button>
-          <button> +.01secs</button>
+          <button onClick={props.clear}> Clear </button>
         </div>
       </>
     );
@@ -28,11 +28,11 @@ const Time = props => {
       <>
         <div className="timer">
           <h2>
-            3Game Time| 0{props.gameMin}:0{props.gameSec}
+            Game Time| 0{props.gameMin}:0{props.gameSec}
           </h2>
           <button onClick={props.gameStart}> Start </button>
           <button onClick={props.gameEnd}> End </button>
-          <button> +.01secs</button>
+          <button onClick={props.clear}> Clear </button>
         </div>
       </>
     );
@@ -41,11 +41,11 @@ const Time = props => {
       <>
         <div className="timer">
           <h2>
-            4Game Time| 0{props.gameMin}:{props.gameSec}
+            Game Time| 0{props.gameMin}:{props.gameSec}
           </h2>
           <button onClick={props.gameStart}> Start </button>
           <button onClick={props.gameEnd}> End </button>
-          <button> +.01secs</button>
+          <button onClick={props.clear}> Clear </button>
         </div>
       </>
     );
@@ -54,11 +54,11 @@ const Time = props => {
       <>
         <div className="timer">
           <h2>
-            5Game Time| {props.gameMin}:0{props.gameSec}
+            Game Time| {props.gameMin}:0{props.gameSec}
           </h2>
           <button onClick={props.gameStart}> Start </button>
           <button onClick={props.gameEnd}> End </button>
-          <button> +.01secs</button>
+          <button onClick={props.clear}> Clear </button>
         </div>
       </>
     );
@@ -67,14 +67,15 @@ const Time = props => {
       <>
         <div className="timer">
           <h2>
-            6Game Time| {props.gameMin}:{props.gameSec}
+            Game Time| {props.gameMin}:{props.gameSec}
           </h2>
           <button onClick={props.gameStart}> Start </button>
           <button onClick={props.gameEnd}> End </button>
-          <button> +.01secs</button>
+          <button onClick={props.clear}> Clear </button>
         </div>
       </>
     );
   }
 };
+
 export default Time;

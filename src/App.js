@@ -9,8 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       gameBegun: false,
-      gameSec: 25,
-      gameMin: 7,
+      gameSec: 0,
+      gameMin: 0,
       gameStart: 0,
       tSS1: "",
       tSS2: "",
@@ -42,7 +42,7 @@ class App extends Component {
 
   gameStart = () => {
     if (this.state.gameBegun === true) {
-      console.log("NO");
+      alert("game already started");
     } else {
       this.setState({ gameBegun: true });
       this.gameTimer = setInterval(this.countUp, 1000);
@@ -65,11 +65,26 @@ class App extends Component {
     clearInterval(this.gameTimer);
   };
 
+  clearTimers = () => {
+    console.log("Hi");
+    this.setState({
+      tSt1: 0,
+      tSt2: 0,
+      jSt1: 0,
+      jSt2: 0,
+      mSt1: 0,
+      mSt2: 0,
+      bSt1: 0,
+      bSt2: 0,
+      sSt1: 0,
+      sSt2: 0
+    });
+  };
+
   onChange = evt => {
     const key = evt.target.name;
     const val = evt.target.value;
     this.setState({ [key]: val });
-    console.log(key, val);
   };
 
   onConfirm = evt => {
@@ -118,9 +133,7 @@ class App extends Component {
     let min = this.state.gameMin * 60;
     let sec = this.state.gameSec + min;
     const val = evt.target.value;
-
     const key = evt.target.name;
-    console.log(key, val, sec, min);
     switch (key) {
       case "Top":
         switch (val) {
@@ -509,36 +522,6 @@ class App extends Component {
         break;
       default:
     }
-    // switch (val) {
-    //   case "Teleport":
-    //     this.setState({ tSt1: sec + 360 });
-    //     break;
-    // case "Flash":
-    //   this.setState({ tSt2: sec + 300 });
-    //   break;
-    // case "Heal":
-    //   this.setState({ tSt2: sec + 240 });
-    //   break;
-    // case "Cleanse":
-    //   this.setState({ tSt2: sec + 210 });
-    //   break;
-    // case "Exhaust":
-    //   this.setState({ tSt2: sec + 210 });
-    //   break;
-    // case "Ghost":
-    //   this.setState({ tSt2: sec + 180 });
-    //   break;
-    // case "Ignite":
-    //   this.setState({ tSt2: sec + 180 });
-    //   break;
-    // case "Barrier":
-    //   this.setState({ tSt2: sec + 180 });
-    //   break;
-    // case "Smite":
-    //   this.setState({ tSt2: sec + 90 });
-    //     break;
-    //   default:
-    // }
   };
 
   render() {
@@ -550,6 +533,7 @@ class App extends Component {
           gameStart={this.gameStart}
           gameEnd={this.gameEnd}
           gameMin={this.state.gameMin}
+          clear={this.clearTimers}
         />
         <Lanes
           lane={"Top"}

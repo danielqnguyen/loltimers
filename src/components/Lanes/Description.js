@@ -15,7 +15,6 @@ const Desc = props => {
           <li>Flash: 300 seconds</li>
           <li>Teleport: 360 seconds</li>
         </ul>
-        <button onClick={props.onConfirm}>Confirm Summoners</button>
       </div>
     </>
   );

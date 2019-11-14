@@ -6,7 +6,11 @@ const Lanes = props => {
       <>
         <div className="testbox">
           <h3>{props.lane}</h3>
-          <select onChange={props.onChange} name={props.name}>
+          <select
+            onChange={props.onChange}
+            name={props.name}
+            className="ssSelector"
+          >
             <option value="">Select</option>
             <option value="Smite">Smite</option>
             <option value="Barrier">Barrier</option>
@@ -18,7 +22,11 @@ const Lanes = props => {
             <option value="Flash">Flash</option>
             <option value="Teleport">Teleport</option>
           </select>
-          <select onChange={props.onChange} name={props.name2}>
+          <select
+            onChange={props.onChange}
+            name={props.name2}
+            className="ssSelector"
+          >
             <option value="">Select</option>
             <option value="Smite">Smite</option>
             <option value="Barrier">Barrier</option>
@@ -33,6 +41,7 @@ const Lanes = props => {
           <button onClick={props.onConfirm} name={props.lane}>
             ✔
           </button>
+          <div>00:00 | 00:00</div>
         </div>
       </>
     );
@@ -42,30 +51,107 @@ const Lanes = props => {
       let dSec = Math.round([[props.time / 60] - dTimer] * 60);
       let fTimer = Math.floor(props.time2 / 60);
       let fSec = Math.round([[props.time2 / 60] - fTimer] * 60);
-      return (
-        <>
-          <div className="testbox">
-            <h3>{props.lane}</h3>
-            <button
-              onClick={props.timeSpell}
-              value={props.ss1}
-              name={props.lane}
-            >
-              {props.ss1}
-            </button>
-            <button
-              onClick={props.timeSpell}
-              value={props.ss2}
-              name={props.lane}
-            >
-              {props.ss2}
-            </button>
-            <div>
-              {dTimer}:{dSec} | {fTimer}:{fSec}
+      if (dSec < 10 && fSec < 10) {
+        return (
+          <>
+            <div className="testbox">
+              <h3>{props.lane}</h3>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss1}
+                name={props.lane}
+              >
+                {props.ss1}
+              </button>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss2}
+                name={props.lane}
+              >
+                {props.ss2}
+              </button>
+              <div>
+                {dTimer}:0{dSec} | {fTimer}:0{fSec}
+              </div>
             </div>
-          </div>
-        </>
-      );
+          </>
+        );
+      } else if (dSec < 10) {
+        return (
+          <>
+            <div className="testbox">
+              <h3>{props.lane}</h3>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss1}
+                name={props.lane}
+              >
+                {props.ss1}
+              </button>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss2}
+                name={props.lane}
+              >
+                {props.ss2}
+              </button>
+              <div>
+                {dTimer}:0{dSec} | {fTimer}:{fSec}
+              </div>
+            </div>
+          </>
+        );
+      } else if (fSec < 10) {
+        return (
+          <>
+            <div className="testbox">
+              <h3>{props.lane}</h3>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss1}
+                name={props.lane}
+              >
+                {props.ss1}
+              </button>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss2}
+                name={props.lane}
+              >
+                {props.ss2}
+              </button>
+              <div>
+                {dTimer}:{dSec} | {fTimer}:0{fSec}
+              </div>
+            </div>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <div className="testbox">
+              <h3>{props.lane}</h3>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss1}
+                name={props.lane}
+              >
+                {props.ss1}
+              </button>
+              <button
+                onClick={props.timeSpell}
+                value={props.ss2}
+                name={props.lane}
+              >
+                {props.ss2}
+              </button>
+              <div>
+                {dTimer}:{dSec} | {fTimer}:{fSec}
+              </div>
+            </div>
+          </>
+        );
+      }
     }
     return (
       <>
@@ -77,6 +163,7 @@ const Lanes = props => {
           <button onClick={props.timeSpell} value={props.ss2} name={props.lane}>
             {props.ss2}
           </button>
+          <div>00:00 | 00:00</div>
         </div>
       </>
     );
